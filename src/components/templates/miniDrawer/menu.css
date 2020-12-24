@@ -1,0 +1,46 @@
+
+
+.drawer-container {
+  position: fixed;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+ display:flex;
+  justify-content:flex-end;
+   align-items:flex-end;
+  z-index: 9;
+}
+.drawer {
+  padding: 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  left: 0;
+  transition: left .5s cubic-bezier(0.820, 0.085, 0.395, 0.895);
+}
+
+.drawer .hidden {
+  left: -550px;
+}
+
+.drawer .drawer-content {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.drawer ul {
+
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.07;
+  letter-spacing: normal;
+  color: #000000;
+
+}
+.drawer-container.hidden .drawer{
+
+  animation: hide 1s linear;
+}
