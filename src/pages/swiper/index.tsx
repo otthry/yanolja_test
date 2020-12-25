@@ -2,11 +2,8 @@
 import { makeStyles, createStyles, Card, CardHeader, CardMedia, CardContent, Typography, CardActions } from '@material-ui/core';
 import * as React from 'react';
 import { SwiperTemplate } from '@components/templates'
-import { useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
 
-type SwiperProps = {
-  children?: any;
-};
 
 type selectedDataProps = {
   title?: String;
@@ -42,13 +39,13 @@ const useStyles = makeStyles(() =>
     }
   })
 );
-const Swiper = (props: SwiperProps) => {
+const Swiper = () => {
   // fixme: Swiper 를 구현해 주세요.
 
   const classes = useStyles();
 
   //expanded 무엇에 쓰는 변수인지 나는 모름... 큰일..ㄹ.났..ㄷ..
-  const [expanded, setExpanded] = React.useState(false);
+  // const [expanded, setExpanded] = React.useState(false);
 
   const [data, setData] = React.useState([]);
   const [index, setIndex] = React.useState(0);
@@ -64,9 +61,6 @@ const Swiper = (props: SwiperProps) => {
   }, []);
 
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   const handleIndexChange = (activeIndex: any) => {
     setSelectedData(data[activeIndex]);

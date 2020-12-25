@@ -1,17 +1,16 @@
 
-import axios from 'axios';
 import * as React from 'react';
 import { useEffect } from 'react';
 
 
 type ImageProps = {
   children?: any;
-  url?: string; 
+  url?: string;
   alt?: string;
   errsrc?: string;
 };
 
-const Image = ({ url ='', alt ='', errsrc ='' }: ImageProps) => {
+const Image = ({ url = '', alt = '', errsrc = '' }: ImageProps) => {
 
   const [src, setSrc] = React.useState('/errImage');
 

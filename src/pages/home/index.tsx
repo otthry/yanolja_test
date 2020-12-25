@@ -20,9 +20,9 @@ const Home = (props: HomeProps) => {
   const classes = useStyles();
   return (
     <div className={classes.home}>
-      <Title headtitle={2}> <a
-        target="_blank"
+      <Title headtitle={2}> <a rel="noopener noreferrer"
         href="https://docs.google.com/document/d/1nGgpXS1_2muKL_4--Zq73VCeV-PK97dDshZO9JQ-uy0/edit"
+        target="_blank"
       > 과제설명  </a></Title>
 
       <ul>

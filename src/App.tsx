@@ -1,19 +1,18 @@
-import { makeStyles, CssBaseline, AppBar, Toolbar, IconButton, Typography, Button } from "@material-ui/core";
-import { MenuIcon } from "@material-ui/data-grid";
+import { makeStyles, CssBaseline, AppBar } from "@material-ui/core";
 import React from "react";
+import { useSelector } from 'react-redux';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useRouteMatch,
-  useParams,
 } from "react-router-dom";
 import clsx from "clsx"
-import { MiniDrawer } from "./components/templates";
+import { MiniDrawer, HeadToolBar } from "./components/templates";
 import { routerPage } from "./pages";
+import { openMenuDrawer, closeMenuDrawer } from "@src/store/modules/view"
+import { logoutSuccess } from "@src/store/modules/user"
 
-const goToLogin = () => (window.location.href = "/login");
+import { connect } from 'react-redux';
 
 const drawerWidth = 240;
 
@@ -60,17 +59,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-export default function App() {
+function App(props: any) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  const state = useSelector(state => state);
+  const { isOpenDrawer, logoutSuccess, userInfo } = props
+  console.log(state)
   return (
     <div className={classes.root}>
       <Router>
@@ -78,33 +71,21 @@ export default function App() {
         <AppBar
           position="fixed"
           className={clsx(classes.appBar, {
-            [classes.appBarShift]: open,
+            [classes.appBarShift]: isOpenDrawer,
           })}
         >
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, {
-                [classes.hide]: open,
-              })}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              Assignment
-          </Typography>
-            <Button color="inherit" onClick={() => goToLogin()}>
-              Login
-          </Button>
-          </Toolbar>
+          <HeadToolBar
+            closeMenuDrawer={props.closeMenuDrawer}
+            openMenuDrawer={props.openMenuDrawer}
+            isOpenDrawer={isOpenDrawer}
+            logout={logoutSuccess}
+            userInfo={userInfo}
+          ></HeadToolBar>
         </AppBar>
         <MiniDrawer
-          open={open}
-          onClose={handleDrawerClose}
-        ></MiniDrawer>
+          onClose={props.closeMenuDrawer}
+          open={isOpenDrawer}
+        />
         <main className={classes.content}>
           <div className={classes.toolbar} >
             <Switch>
@@ -118,3 +99,20 @@ export default function App() {
     </div>
   );
 }
+
+
+function mapStateToProps(state: any) {
+  const {
+    viewReducer: { isOpenDrawer },
+    userReducer: userInfo,
+  } = state;
+  return { isOpenDrawer, userInfo };
+}
+function mapDispatchToProps(dispatch: any) {
+  return {
+    openMenuDrawer: () => dispatch(openMenuDrawer()),
+    closeMenuDrawer: () => dispatch(closeMenuDrawer()),
+    logoutSuccess: () => dispatch(logoutSuccess()),
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App)
