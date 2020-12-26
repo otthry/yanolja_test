@@ -4,7 +4,6 @@ import { Divider, IconButton, List, ListItem, ListItemIcon } from "@material-ui/
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import MailIcon from '@material-ui/icons/Mail';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -101,7 +100,7 @@ const MiniDrawer = (props: any) => {
       <List>
         {routerPage.map((item: any, index: number) => (
          !item.hiddenMenu && (<ListItem button key={item.name}>
-            <NavLink to={item.link}> <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <NavLink to={item.link}> <ListItemIcon> <InboxIcon /> </ListItemIcon>
               {item.name}</NavLink>
           </ListItem>)
         ))}
