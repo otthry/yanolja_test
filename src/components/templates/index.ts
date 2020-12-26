@@ -1,4 +1,4 @@
-import MiniDrawer from '@src/components/templates/MiniDrawer'
-import SwiperTemplate from '@src/components/templates/SwiperTemplate'
-import HeadToolBar from '@src/components/templates/HeadToolBar';
+import MiniDrawer from '@components/templates/MiniDrawer'
+import SwiperTemplate from '@components/templates/SwiperTemplate'
+import HeadToolBar from '@components/templates/HeadToolBar';
 export { MiniDrawer,SwiperTemplate,HeadToolBar};
