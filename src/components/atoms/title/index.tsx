@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from 'react'
 export interface TitleProps {
   /**
    *  <h1><h2><h3>...

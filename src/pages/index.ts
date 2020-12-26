@@ -7,30 +7,39 @@ import Swiper from '@pages/swiper'
 
 const routerPage = [
     {
+        name : 'Home',
         link:'/',
-        component:Home
+        component:Home 
     },
     {
+        name : 'About',
         link:'/about',
         component:About
     },
     {
+        name : 'List',
         link:'/list',
         component:List
     },
     {
+        name : 'Login',
         link:'/login',
-        component:Login
+        component:Login,
+        hiddenMenu : true
     },
     {
+        name : 'Topics',
         link:'/topics',
         component:Topics
     }, 
     {
+        name : 'Topics',
         link:'/topics/:topicId',
-        component:Topics
+        component:Topics,
+        hiddenMenu : true
     }, 
     {
+        name : 'Swiper',
         link:'/swiper',
         component:Swiper
     }

@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import clsx from "clsx"
 import { MiniDrawer, HeadToolBar } from "./components/templates";
-import { routerPage } from "./pages";
+import { routerPage } from "@src/pages";
 import { openMenuDrawer, closeMenuDrawer } from "@src/store/modules/view"
 import { logoutSuccess } from "@src/store/modules/user"
 

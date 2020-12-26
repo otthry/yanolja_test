@@ -1,6 +1,6 @@
 // import { Topic } from '@src/components/molecules';
 import * as React from 'react';
-import {Topic} from "@src/components/molecules/topic"
+import { Topic } from "@components/molecules"
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
 
 type TopicsProps = {

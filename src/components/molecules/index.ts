@@ -1,5 +1,5 @@
 
-import {Header} from '@components/molecules/header'
-import {Topic} from '@components/molecules/topic'
-import PhotoCard from '@components/molecules/photoCard'
-export { Header,Topic,PhotoCard };
+import {Header} from '@src/components/molecules/Header'
+import {Topic} from '@src/components/molecules/Topic'
+import PhotoCard from '@src/components/molecules/PhotoCard'
+export { Header, Topic, PhotoCard };

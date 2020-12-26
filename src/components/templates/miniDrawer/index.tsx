@@ -1,7 +1,6 @@
 
 import React from "react";
 import { Divider, IconButton, List, ListItem, ListItemIcon } from "@material-ui/core";
-import { routerMap } from "@src/data/menus";
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -10,6 +9,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { NavLink } from "react-router-dom";
+import { routerPage } from "@pages/index";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -99,11 +99,11 @@ const MiniDrawer = (props: any) => {
       </div>
       <Divider />
       <List>
-        {routerMap.map((item: any, index: number) => (
-          <ListItem button key={item.name}>
+        {routerPage.map((item: any, index: number) => (
+         !item.hiddenMenu && (<ListItem button key={item.name}>
             <NavLink to={item.link}> <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               {item.name}</NavLink>
-          </ListItem>
+          </ListItem>)
         ))}
       </List>
     </Drawer>
